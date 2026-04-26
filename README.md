@@ -14,7 +14,7 @@ CFlat stays close to C’s design philosophy while smoothing out many of its rou
 
 ## CFlat Example
 
-**lib.cf**
+**main.cf**
 
 ```c
 #include <stdio.h>
@@ -56,7 +56,9 @@ int main()
 ```
 
 ## **how to  compile  the example **
-cfc -f <files> -o  <output file name>
+cfc -f main.cf -o  main
 
 
 ## ** how to install ** 
+
+ download the installer script from the repo and run it
