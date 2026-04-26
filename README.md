@@ -69,3 +69,7 @@ cfc -f main.cf -o  main
 ## how to install 
 
  download the installer script from the repo and run it
+
+
+### further documention
+[See docs](docs.md)
