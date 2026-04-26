@@ -1,5 +1,6 @@
 ### cfc flags
 
+
 | Flag    | Description                                                   | Example                               |
 |---------|---------------------------------------------------------------|----------------------------------------|
 | -f      | All arguments until the next flag are treated as input files  | `cfc -f file1.cf file2.cf`             |
