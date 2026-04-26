@@ -1,3 +1,7 @@
+
+package.path = "/usr/local/share/cflat/?.lua;" .. package.path
+
+
 pp = require("cfpp")
 
 
