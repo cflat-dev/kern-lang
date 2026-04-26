@@ -1,0 +1,130 @@
+pp = require("cfpp")
+
+
+--- cfc.lua
+
+
+local link_dirs = {}
+
+
+local apps = {};
+local include_dirs = {"./include", ".", "/usr/include"};
+local  build_files  = {}
+local output_file = "a.out"
+
+-- opening logic
+if (arg[1] == nil or arg[2] == nil) then
+    print("usage: cfc  -f <files>  -o <output>")
+    return
+end
+
+if (arg[1] == "-v") then
+    print("cfc  v.10.0")
+return
+end
+
+
+
+for i = 1, #arg do
+    if arg[i] == "-i" then
+        for j = i + 1, #arg do
+            if arg[j]:sub(1,1) == "-" then
+                break
+            end
+            table.insert(include_dirs, arg[j])
+        end
+    end
+    
+    
+    
+end
+
+
+for i = 1, #arg do
+    if arg[i] == "-f" then
+        for j = i + 1, #arg do
+            if arg[j]:sub(1,1) == "-" then
+                break
+            end
+            table.insert(build_files, arg[j])
+        end
+        
+      elseif arg[i] == "-o"  then
+        output_file = arg[i+1] or "a.out"
+      
+      
+        
+    end
+    
+    
+    
+    
+    
+end
+
+
+for i = 1, #arg do
+    if arg[i] == "-app" then
+        for j = i + 1, #arg do
+            if arg[j]:sub(1,1) == "-" then
+                break
+            end
+
+            -- load the script file
+            local chunk, err = loadfile(arg[j])
+            if not chunk then
+                error("Failed to load app script: " .. err)
+            end
+
+            -- run the script; it must return a function
+            local pp = chunk()
+            if type(pp) ~= "function" then
+                error("App script did not return a function: " .. arg[j])
+            end
+
+            -- store the function for later use
+            table.insert(apps, pp)
+        end
+    end
+    
+    
+end
+
+
+
+for i=1,#build_files do 
+  
+  local file = io.open(build_files[i],"r")
+local test = file:read("*a");
+file:close();
+
+
+--write to output file
+
+local str=  pp(build_files[i],test,include_dirs,apps)
+
+local out = io.open(build_files[i] .. ".c","w")
+out:write(str);
+out:close();
+
+
+end
+
+local files = ""
+
+for  i=1,#build_files do 
+  files = files ..  build_files[i] .. ".c "
+  end
+
+
+os.execute("gcc " .. files .. " -o  " .. output_file )
+
+for i=1,#build_files do 
+os.execute("rm " .. build_files[i] .. ".c" )
+
+end
+
+
+
+
+

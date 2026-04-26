@@ -1,0 +1,57 @@
+
+
+/*
+
+cflat nwe fuehcre
+
+
+$append <macro> , <x>
+
+adds <x> to  <macro>
+
+@note this only works on marocs
+
+*/
+
+#include<stdio.h>
+#include<stdint.h>
+#include<stdlib.h>
+#include<cflib.h>
+
+#include<lib.cf>
+
+
+
+
+
+
+
+
+void my_free(void *tr) {
+    printf("freeing AT  LINE %p\n",tr);
+    free(tr);
+}
+
+
+int main()
+@{
+vec_new(int,t);
+vec_push(int,t,4);
+
+vec_remove(int,t,0);
+
+
+i32 * buffer = malloc(sizeof(i32));
+mfcu(my_free,buffer);
+
+{
+printf(" welcome to cflat\n");
+}
+
+*buffer = 3;
+
+return 0;
+
+
+printf("hello0");
+}
