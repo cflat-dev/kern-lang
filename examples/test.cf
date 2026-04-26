@@ -7,28 +7,30 @@
 #include<stdlib.h>
 #include<cflib.h>
 
-#include "lib.cf"
 
+#macro vec2(T)
 
+typedef struct {
+    T x;
+    T y;
+} vec2_##T ;
 
-
-
-
+#endm
 
 
 void my_free(void *tr) {
-    printf("freeing AT  LINE %p\n",tr);
     free(tr);
 }
 
 
+vec2(int)
+
 int main()
 @{
-vec_new(int,t);
-vec_push(int,t,4);
 
-vec_remove(int,t,0);
-
+vec2_int vec;
+vec.x = 5;
+vec.y = 3;
 
 i32 * buffer = malloc(sizeof(i32));
 mfcu(my_free,buffer);
@@ -40,7 +42,5 @@ printf(" welcome to cflat\n");
 *buffer = 3;
 
 return 0;
-
-
 printf("hello0");
 }

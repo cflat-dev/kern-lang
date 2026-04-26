@@ -22,24 +22,16 @@ int r##T =5;
     T value;
     bool has_value;
 };
-
 #endm
 
-
 #macro DEFVEC2(T,N)
-
-
 typedef struct {
     T x;
     T y;
     char _pad[ N ];
 }  _vec2##T ; 
-
-
 #endm
-
 #macro _vector(T) 
-
 typedef struct {
   T * data;
   size_t cap;
@@ -65,8 +57,6 @@ vec->data[vec->len-1]  = value;
   }
 
 }
-
-
 static inline void vec##T##_remove(vec##T *vec, size_t idx) {
 
     if (idx >= vec->len) {
@@ -84,28 +74,20 @@ static inline void vec##T##_remove(vec##T *vec, size_t idx) {
 
     vec->len--;
 }
-
-
 static inline  void vec_cu_##T (void *ptr) {
  vec##T *vec = ( vec##T  * ) ptr;
-
   free(vec->data);
   vec->data = NULL;
   vec->len = 0;
   vec->cap = 0;
-
 }
-
 static inline vec##T  vec##T##_init() {
   vec##T vec;
 vec.data = malloc(sizeof(T) * 10);
 vec.cap = 10;
 vec.len = 0;
 return vec;
-
 }
-
-
 #endm
 
 
