@@ -112,7 +112,7 @@ local str = test:gsub(format, function(block)
 end)
 
 
-str = "#include<mfcu.h>\n" .. str
+str = "#include<cflat/mfcu.h>\n" .. str
 
 
 
