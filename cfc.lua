@@ -10,7 +10,7 @@ local link_dirs = {}
 local apps = {};
 local include_dirs = {"./include", ".", "/usr/include"};
 local link_dirs = {}
-local link = {}
+local link_libs = {}
 local  build_files  = {}
 local output_file = "a.out"
 
@@ -47,7 +47,7 @@ for i = 1, #arg do
             if arg[j]:sub(1,1) == "-" then
                 break
             end
-            table.insert(link, arg[j])
+            table.insert(link_libs, arg[j])
         end
     end
 
@@ -138,12 +138,29 @@ end
 
 local files = ""
 
+
+
+local link_dir_str = ""
+local link_lib_str = ""
+
+for i = 1, #link_dirs do
+    link_dir_str = link_dir_str .. " -L" .. link_dirs[i]
+end
+
+
+
+for i = 1, #link_libs do
+    link_lib_str = link_lib_str .. " -l" .. link_libs[i]
+end
+
+
+
 for  i=1,#build_files do 
   files = files ..  build_files[i] .. ".c "
   end
 
 
-os.execute("gcc " .. files .. " -o  " .. output_file )
+os.execute("gcc " .. files .. " -o  " .. output_file .. link_dir_str .. link_lib_str )
 
 for i=1,#build_files do 
 os.execute("rm " .. build_files[i] .. ".c" )
