@@ -9,7 +9,7 @@ Kern is a modern **C dialect** that enhances the C language with:
 - **Optional modern features without sacrificing C’s performance**
 
 Kern stays close to C’s design philosophy while smoothing out many of its rough edges.
-
+Kern compiles to portable C, making it compatible with any C toolchain.
 ---
 
 ## Kern Example
@@ -63,7 +63,7 @@ printf("hello0");
 ```
 
 ## how to  compile  the example 
-kernc -f main.cf -o  main
+kernc -f main.kern -o  main
 
 
 ## installation
