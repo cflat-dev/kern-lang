@@ -9,3 +9,4 @@
 | -l      | All arguments until the next flag are libraries to link       | `cfc -l sdl2`                          |
 | -ldir   | All arguments until the next flag are library search paths    | `cfc -ldir /usr/local/bin/`            |
 | -shared | Marks the output file as a shared library                     | `cfc -f test.cf -o test.so -shared`    |
+| -app    | All arguments until the next flag are preprocesser addons     |  `cfc -app  my_addon.lua               |
