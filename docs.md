@@ -1,4 +1,4 @@
-### Kern flags
+### KernC flags
 
 
 | Flag    | Description                                                   | Example                               |

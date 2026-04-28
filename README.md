@@ -1,6 +1,6 @@
 ## Why KernC?
 
-Kern is a modern **C dialect** that enhances the C language with:
+KernC is a modern **C dialect** that enhances the C language with:
 
 - **RAII (Resource Acquisition Is Initialization)**  
 - **Automatic cleanup and resource management**  

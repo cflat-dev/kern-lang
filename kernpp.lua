@@ -112,7 +112,7 @@ local str = test:gsub(format, function(block)
 end)
 
 
-str = "#include<kern/mfcu.h>\n" .. str
+str = "#include<kernc/mfcu.h>\n" .. str
 
 
 

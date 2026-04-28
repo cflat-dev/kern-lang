@@ -2,8 +2,8 @@
 set -e
 
 # Install locations
-HEADER_DIR="/usr/local/include/kern"
-LIB_DIR="/usr/local/share/kern"
+HEADER_DIR="/usr/local/include/kernc"
+LIB_DIR="/usr/local/share/kernc"
 BIN_DIR="/usr/local/bin"
 
 echo "Installing Kern.."
@@ -37,5 +37,5 @@ EOF
 
 sudo chmod +x "$BIN_DIR/kernc"
 
-echo "Kern installed successfully."
+echo "KernC installed successfully."
 echo "You can now run: kernc <file>"
