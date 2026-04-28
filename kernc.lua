@@ -1,5 +1,5 @@
 
-package.path = "/usr/local/share/kern/?.lua;" .. package.path
+package.path = "/usr/local/share/kernc/?.lua;" .. package.path
 
 
 pp = require("kernpp")

@@ -37,7 +37,7 @@ i32 * buffer = malloc(sizeof(i32));
 mfcu(my_free,buffer);
 
 {
-printf(" welcome to the Kern programming languaget\n");
+printf(" welcome to the KernC programming languaget\n");
 }
 
 *buffer = 3;
