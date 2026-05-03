@@ -86,6 +86,13 @@ end
 end)
 
 
+--prevent expertion within strings
+local strings = {}
+
+test = test:gsub('"([^"\\]*(\\.[^"\\]*)*)"', function(str)
+    table.insert(strings, str)
+    return "__@str_" .. #strings .. " "
+end)
 
 
 
@@ -163,6 +170,13 @@ end
 for i=1,#preprocessors do 
   str = preprocessors[i](str)
   end
+
+-- revert string transformmations
+
+test = test:gsub("__@str_(%d+)__", function(n)
+    return '"' .. strings[tonumber(n)] .. '"'
+end)
+
 
 
 return str
